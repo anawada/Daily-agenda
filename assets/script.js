@@ -17,23 +17,24 @@ function createCalendar(){
 for (let i = 0; i < hoursArr.length; i++) {
     const hour = hoursArr[i];
 
-    let $everyHour = $("<p>");
-    $everyHour.attr("class", "hour");
+    let $everyHour = $("<div class='row'>");
     $everyHour.attr("data-time", hour);
     $everyHour.text(hour);
     $('.container').append($everyHour);
 
     // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
-    if(currentTime ) {
+    if(currentTime === $everyHour ) {
         $everyHour.attr("class", "present");
+
     }else if (currentTime < $everyHour) {
+        $everyHour.remove("class", "present");
         $everyHour.attr("class", "past");
     }else{
-        $everyHour.attr("class", "present");
+        $everyHour.remove("class", "present");
+        $everyHour.remove("class", "past");
+        $everyHour.attr("class", "future");
     }
 }
-
-
 
 // Allow a user to enter an event when they click a timeblock
 
