@@ -34,7 +34,6 @@ for (let i = 0; i < hoursArr.length; i++) {
   );
   $($everyHour).append($btn);
 
-  
   if (currentTime === hour) {
     $everyHour.addClass("present");
   } else if (currentTime > hour) {
@@ -44,15 +43,18 @@ for (let i = 0; i < hoursArr.length; i++) {
   }
   console.log("$everyHour", $everyHour);
 }
-  
-  let appointment = localStorage.getItem("appointment");
-  $(".description").val().text = appointment; 
 
+let agendaIndex = 0;
+let hourIndex = 8;
+
+for (let i = 0; i < hoursArr.length; i++) {
+  $(".description").eq(agendaIndex++).val(localStorage.getItem(hourIndex++));
+  
+}
 
 $(".saveBtn").on("click", function (event) {
   event.preventDefault();
 
-  // let appointment = $(".description").val();
   let appointment = $(this).siblings(".description").val();
   let appointmentTime = $(this).parent().attr("data-time");
   localStorage.setItem(appointmentTime, appointment);
