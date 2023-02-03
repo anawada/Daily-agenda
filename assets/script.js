@@ -14,7 +14,6 @@ for (let i = 0; i < hoursArr.length; i++) {
 
   let $everyHour = $("<div class='row time-block'>");
   $everyHour.attr("data-time", hour);
-  // $everyHour.attr("id", hour);
   $(".container").append($everyHour);
 
   let $hourTime = $("<div class='hour col-2'>");
@@ -35,7 +34,7 @@ for (let i = 0; i < hoursArr.length; i++) {
   );
   $($everyHour).append($btn);
 
-  // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
+  
   if (currentTime === hour) {
     $everyHour.addClass("present");
   } else if (currentTime > hour) {
@@ -45,26 +44,16 @@ for (let i = 0; i < hoursArr.length; i++) {
   }
   console.log("$everyHour", $everyHour);
 }
-renderSchedule();
-// Allow a user to enter an event when they click a timeblock
-// Save the event in local storage when the save button is clicked in that timeblock.
-function renderSchedule() {
-  $('.description').val(localStorage.getItem('data-time'));
-  console.log(localStorage.getItem('9'));
-  console.log($("#9"));
-  console.log($('#data-time'));
+  
   let appointment = localStorage.getItem("appointment");
-  //save the text inside the description 
+  $(".description").val().text = appointment; 
 
-}
 
 $(".saveBtn").on("click", function (event) {
   event.preventDefault();
 
   // let appointment = $(".description").val();
-  let  appointment = $(this).siblings('.description').val();
+  let appointment = $(this).siblings(".description").val();
   let appointmentTime = $(this).parent().attr("data-time");
-  console.log(appointmentTime);
-  console.log($(this));
   localStorage.setItem(appointmentTime, appointment);
 });
