@@ -4,7 +4,7 @@
 
 This application is a simple calendar that allows you to set your appointments, with a colour scheme, it helps you to visualize the appointments of the day divided into past, present and future hours. This application was build using HTML, CSS, JavaScript, JQuery, Bootstrap and Moment.js also uses localStorage to keep your appointments saved.
 
-Deployed application: https://anawada.github.io/Scheduler/
+Deployed application:  https://anawada.github.io/Daily-agenda/
 
 
 ## Usage 
